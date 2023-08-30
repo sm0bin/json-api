@@ -116,11 +116,10 @@ fetch('https://jsonplaceholder.typicode.com/posts')
         // Loop through each post
         posts.forEach(post => {
             const article = document.createElement("article"); // Create a container div
-            const div = document.createElement("div"); // Create an article element
-            article.className = "card";
 
             // Create the HTML content for the article
             article.innerHTML = `
+            <div class = "card">
                 <div class="ids">   
                     <h4>User ID: ${post.userId}</h4>
                     <h4>ID: ${post.id}</h4>
@@ -128,10 +127,11 @@ fetch('https://jsonplaceholder.typicode.com/posts')
                 <h2>${post.title}</h2>
                 <hr>
                 <p>${post.body}</p>
+            </div>
             `;
 
             // Append the article to the container div
-            article.appendChild(div);
+            // main.innerHTML
             main.appendChild(article); // Append the container div to the main element
 
             // Fetch and display comments for this post
@@ -153,8 +153,9 @@ function displayComments(comments, parentNode) {
                 <p class="body">${comment.body}</p>
             </div>
         `;
-        const commentNode = document.createElement("div"); // Create a container div for the comment
-        commentNode.innerHTML = commentHTML; // Set the comment HTML
-        parentNode.appendChild(commentNode); // Append the comment container to the parent node
+        // const commentNode = document.createElement("div"); // Create a container div for the comment
+        // commentNode.innerHTML = commentHTML; // Set the comment HTML
+        // parentNode.appendChild(commentHTML); // Append the comment container to the parent node
+        parentNode.innerHTML += commentHTML; // Append the comment container to the parent node
     }
 }
